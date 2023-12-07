@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">ChitChat</string>
+    <string name="login">Login</string>
+    <string name="logo">logo</string>
+    <string name="signUp">Sign Up</string>
     <string name="messagePlacement">This is a message</string>
     <string name="inputMessage">Type your message here</string>
     <string name="sendBtnDescription">Send Button</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
 </resources>
