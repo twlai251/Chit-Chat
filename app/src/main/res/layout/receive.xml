@@ -7,15 +7,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/received_message_background"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:layout_marginTop="5dp">
 
         <TextView
             android:id="@+id/txt_received_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="This is a message"
+            android:text="@string/messagePlacement"
             android:textColor="@color/white"
             android:textSize="18sp"
             android:padding="10dp"/>
