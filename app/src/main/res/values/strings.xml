@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ChitChat</string>
+    <string name="inputMessage">Type your message here</string>
+    <string name="sendBtnDescription">Type your message here</string>
 </resources>
