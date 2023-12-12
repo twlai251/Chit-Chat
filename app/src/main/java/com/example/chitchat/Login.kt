@@ -3,7 +3,6 @@ package com.example.chitchat
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -31,7 +30,6 @@ class Login : AppCompatActivity() {
         btnLogin =  findViewById(R.id.btnLogin)
         btnSignUp =  findViewById(R.id.btnSignUp)
 
-
         btnSignUp.setOnClickListener {
             val intent = Intent(this, SignUp::class.java)
             finish()
@@ -41,10 +39,16 @@ class Login : AppCompatActivity() {
         btnLogin.setOnClickListener {
             val email = edtEmail.text.toString()
             val password = edtPassword.text.toString()
-
-            login(email, password)
+            if(edtEmail.text.isNullOrEmpty()){
+                Toast.makeText(this@Login, "Please enter an email", Toast.LENGTH_SHORT).show()
+            }
+            else if(edtPassword.text.isNullOrEmpty()){
+                Toast.makeText(this@Login, "Please enter an password", Toast.LENGTH_SHORT).show()
+            }
+            else {
+                login(email, password)
+            }
         }
-
     }
 
     private fun login(email: String, password: String) {
@@ -55,7 +59,8 @@ class Login : AppCompatActivity() {
                     // Logic for user login
                     val intent = Intent(this@Login, MainActivity::class.java)
                     startActivity(intent)
-                } else {
+                }
+                else {
                     Toast.makeText(this@Login, "User does not exist", Toast.LENGTH_SHORT).show()
 
                 }

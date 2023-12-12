@@ -1,10 +1,12 @@
 package com.example.chitchat
 
+import android.app.AlertDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.activity.OnBackPressedCallback
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
@@ -24,8 +26,28 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Device Back Button
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                val builder: AlertDialog.Builder = AlertDialog.Builder(this@MainActivity)
+                builder
+                    .setTitle("Are you sure you want to logout?")
+                    .setPositiveButton("Logout") { dialog, which ->
+                        val intent = Intent(this@MainActivity, Login::class.java)
+                        finish()
+                        startActivity(intent)
+                    }
+                    .setNegativeButton("Cancel") { dialog, which ->
+                        dialog.cancel()
+                    }
+                val dialog: AlertDialog = builder.create()
+                dialog.show()
+            }
+        }
+        onBackPressedDispatcher.addCallback(this, callback)
+
         mAuth = FirebaseAuth.getInstance()
-        mDbRef = FirebaseDatabase.getInstance().getReference()
+        mDbRef = FirebaseDatabase.getInstance().reference
 
         userList = ArrayList()
         adapter = UserAdapter(this, userList)
