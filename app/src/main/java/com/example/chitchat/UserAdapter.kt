@@ -23,11 +23,11 @@ class UserAdapter(val context: Context, val userList: ArrayList<User>):
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         val currentUser = userList[position]
-        holder.textName.text = currentUser.name
-
+        holder.textName.text = "${currentUser.firstName} ${currentUser.lastName}"
         holder.itemView.setOnClickListener{
             val intent = Intent(context, ChatActivity::class.java)
-            intent.putExtra("name", currentUser.name)
+            intent.putExtra("first name", currentUser.firstName)
+            intent.putExtra("last name", currentUser.lastName)
             intent.putExtra("uid", currentUser.uid)
             context.startActivity(intent)
         }

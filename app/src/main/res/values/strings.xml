@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ChitChat</string>
+    <string name="app_name">Chit Chat</string>
     <string name="login">Login</string>
     <string name="logo">logo</string>
     <string name="signUp">Sign Up</string>
@@ -8,4 +8,6 @@
     <string name="sendBtnDescription">Send Button</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
 </resources>
